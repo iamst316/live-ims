@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap' %}" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'items' %}">Items</a>
+        <a href="{% url 'sell' %}">Sell Item</a>
+        <a href="{% url 'order' %}">Order New Item</a>
+        <a href="{% url 'items-view-list' %}">Item Details</a>
+        <a href="{% url 'orders' %}">Orders Placed</a>
+        <a href="{% url 'orders-received' %}">Order Received</a>
+        <a href="{% url 'orders-cancelled' %}">Order Cancelled</a>
+        <a href="{% url 'transactions' %}">Items Sold</a>
+        <a href="{% url 'items-edit-list' %}">Edit Item</a>
+        <a href="{% url 'management-home' %}">Management</a>
+    </nav>
+    
+</body>
+</html>

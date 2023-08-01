@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/items.css' %}">
+</head>
+
+<div id="edit-items-main">
+    <h1 id="edit-items-list-title">Edit Items</h1>
+    <div id="edit-item-list">
+        {% for item in inventory_list %}
+            <!-- <li>{{item.name}}</li> -->
+            <div id="edit-item-entry">
+                <h2>{{item.name}}</h2>                
+                <a href="{% url 'edit-item-details' item.id %}"><button id="item-btn">Edit</button></a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

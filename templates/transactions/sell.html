@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/sell-item.css' %}">
+</head>
+<body>
+    <div id="sell-new-main">
+        <h1 id="add-new-title">Sell Item</h1>
+
+        <form id="sell-form" method="post">
+            {% csrf_token %}
+            {{form.as_table}}
+            
+            <input id="sell-btn" type="submit" value="Sell">
+        </form>
+    </div>
+
+    
+    
+</body>
+</html>
+
+{% endblock %}

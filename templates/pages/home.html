@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Inventory Management System</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home-footer.css' %}">
+    <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap' %}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+  <div id="home-main">
+    <h1 id="home-title">Home</h1>
+        
+                       
+    <div id="chart-1"></div>
+
+    <h1 id="total-store-profit">Total Store Profit</h1>
+    <h2 id="total-store-profit">&#8377; {{totalProfit}}</h2>
+    <h1 id="total-store-profit">Costliest Item</h1>
+    <h2 id="total-store-profit">{{costlyname}}: &#8377; {{costliest}}</h2>
+    <h1 id="total-store-profit">Most Sold Item</h1>
+    <h2 id="total-store-profit">{{mostSoldName}}: {{mostSoldNum}} sold</h2>
+    <h1 id="total-store-profit">Items Out of Stock</h1>
+        <h2 id="total-store-profit">
+          {% if items_oos_length == 0 %}
+            All Stocked Up
+          {% else %}
+            {% for item in items_out_of_stock %}
+              {{item}}
+            {% endfor %}
+          {% endif %}
+        </h2>
+        <h1 id="total-store-profit">Most Profitable Item</h1>
+        <h2 id="total-store-profit">{{maxProfitableName}}: &#8377; {{maxProfitable}}</h2>
+
+        <div id="wrapper"><div id="pie-chart-profit-share"></div></div>
+        
+        
+
+        
+    </div>
+    
+    <script>
+      let bardata = JSON.parse("{{data|escapejs}}")
+      var options = {
+        title:{
+          text: "Items Quantity Present"
+        },
+        chart: {
+          type: 'bar',
+          width:'100%',
+          height:'50%'
+        },
+        series: [{
+          name: 'quantity',
+          data: bardata.quantity
+        }],
+        xaxis: {
+          categories: bardata.items
+        }
+      }
+          
+      var bar_chart = new ApexCharts(document.querySelector("#chart-1"), options);
+      bar_chart.render();
+
+      let piedata = JSON.parse("{{data|escapejs}}")
+      var options = {
+        title:{
+          text: "Items Profit Share"
+        },
+        chart: {
+          type: 'pie',
+          width:'450px',
+          height:'670px',
+          
+        },
+        series: piedata.profits,
+        labels: piedata.items
+      }
+          
+      var pie_chart = new ApexCharts(document.querySelector("#pie-chart-profit-share"), options);
+      pie_chart.render();
+        
+                    
+    </script>
+
+</body>
+</html>
+
+{% endblock %}

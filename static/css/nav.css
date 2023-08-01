@@ -1,0 +1,43 @@
+nav {
+    position: sticky;
+    /* background-color: orangered;
+    width:fit-content;
+    padding-top: .5rem;
+    padding-bottom: .5rem; */
+    /* margin-top: 1.2rem; */
+    top: 0;
+    /* left: 10rem; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: auto;
+    float: left;
+    /* bottom: 0; */
+    padding: 0 .35rem 0 .35rem;
+    /* background-color: red; */
+    background-image: linear-gradient(to bottom right, rgb(248, 136, 154), blueviolet);
+}
+
+nav > a{
+    display: inline-block;
+    margin: 1.2rem;
+    /* padding-right: 0; */
+    text-align: center;
+    text-decoration: none;
+    /* text-align: center; */
+    /* border: 1.4rem solid yellow; */
+    /* padding: 1em 2em; */
+    /* background-color: grey; */
+    border: 0;
+    border-radius: .25rem;
+    cursor: pointer;
+    /* font-size: 2rem; */
+    transition: transform 1000ms;
+    color: beige;
+}
+
+nav > a:hover,nav > a:focus-visible{
+    transform: translateY(-.5rem);
+    transition: transform 250ms;
+}
+

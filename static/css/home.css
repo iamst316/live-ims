@@ -1,0 +1,49 @@
+#home-main{
+    position: relative;
+    left: 9rem;
+    top: 0;
+    /* border: 2px solid red; */
+    width: 86%;;
+    height: fit-content;
+    background-color: rgba(245, 243, 255, 0.829);
+    
+
+}
+
+#home-title{
+    color: blue;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    /* border: 2px solid red; */
+}
+
+#chart-1{
+    margin: auto;
+    width: 40%;
+}
+
+#total-store-profit{
+    margin: auto;
+    width: 40%;
+    text-align: center;
+    height: 50%;
+    margin-bottom: 1rem;
+}
+
+#pie-chart-profit-share{
+    margin: auto;
+    /* border: 2px solid red; */
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /* height: 70%; */
+    
+    /* min-width: auto; */
+    /* display: inline-block; */
+}
+
+

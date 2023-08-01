@@ -1,0 +1,520 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/management.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+    
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Page</title>
+</head>
+<body>
+    <div id="header">
+        <div id="left">
+            <img id='logo' src="{% static './img/logo.png' %}" alt="Logo">
+            <h3>Management Live</h3>
+        </div>
+        
+        <div id="btns">
+            <button><a href="{% url 'home' %}">Home</a></button>
+            <button>Admissions</button>
+            <button>Profile</button>
+        </div>
+    </div>
+    <div id="navbar">
+        <button><img class='ico' src="{% static './img/search.png' %}" ></button>
+        <button><img class='ico' src="{% static './img/filter.png' %}" ></button>
+        <button><img class='ico' src="{% static './img/keyboard.png' %}" ></button>
+        <button><img class='ico' src="{% static './img/ambulance.png' %}" ></button>
+        <button><img class='ico' src="{% static './img/injured.png' %}" ></button>
+        <button><img class='ico' src="{% static './img/first-aid-kit.png' %}" ></button>
+        <button><img class='ico' src="{% static './img/doctor.png' %}" ></button>
+        <button><img class='ico' src="{% static './img/bar-chart.png' %}" ></button>
+    </div>
+    <div id="main-content">
+        <div id="key-metrics">
+            <p id="key-title">Key Metrics</p>
+            <div id="metric-item">
+                <div id="two-titles-metric">
+                    <p id="title-1">Queue To Registration</p>
+                    <p id="title-2">Registration Time</p>
+                </div>
+                <div id="clock-time">
+                    <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                    <p class="red">02:34</p>
+                </div>
+                
+            </div>
+            <div id="metric-item">
+                <div id="two-titles-metric">
+                    <p id="title-1">Registration to Triage</p>
+                    <p id="title-2">Time to Triage</p>
+                </div>
+                <div id="clock-time">
+                    <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                    <p class="green">00:34</p>
+                </div>
+            </div>
+            <div id="metric-item">
+                <div id="two-titles-metric">
+                    <p id="title-1">Triage to Consult</p>
+                    <p id="title-2">Time to Consult</p>
+                </div>
+                <div id="clock-time">
+                    <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                    <p class="green">00:34</p>
+                </div>
+            </div>
+            <div id="metric-item">
+                <div id="two-titles-metric">
+                    <p id="title-1">Triage End to Discharge</p>
+                    <p id="title-2">In Zone Time</p>
+                </div>
+                <div id="clock-time">
+                    <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                    <p class="red">02:34</p>
+                </div>
+            </div>
+            <div id="metric-item">
+                <div id="two-titles-metric">
+                    <p id="title-1">Consultation to Discharge</p>
+                    <p id="title-2">Treatment Time</p>
+                </div>
+                <div id="clock-time">
+                    <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                    <p class="red">02:34</p>
+                </div>
+            </div>
+            <div id="metric-item">
+                <div id="two-titles-metric">
+                    <p id="title-1">Lab Order Request to Processing</p>
+                    <p id="title-2">Lab Processing Time</p>
+                </div>
+                <div id="clock-time">
+                    <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                    <p class="red">02:34</p>
+                </div>
+            </div>
+            <div id="metric-item">
+                <div id="two-titles-metric">
+                    <p id="title-1">Radiology Order Request to Processing</p>
+                    <p id="title-2">Radiology Processing Time</p>
+                </div>
+                <div id="clock-time">
+                    <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                    <p class="red">02:34</p>
+                </div>
+            </div>
+            <div id="metric-item">
+                <div id="two-titles-metric">
+                    <p id="title-1">UCC Discharge to IP Bed Allotment</p>
+                    <p id="title-2">IP Transfers</p>
+                </div>
+                <div id="clock-time">
+                    <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                    <p class="green">00:34</p>
+                </div>
+            </div>
+            <div id="tablet-data">
+                <div id="tab-left">
+                    <p id="title">Total Visits</p>
+                    <p id="figure">142</p>
+                </div>
+
+                <div id="line"></div>
+
+                <div id="tab-right">
+                    <p id="title">Visit Time</p>
+                    <p id="sub-title">Registration to Discharge</p>
+                    <p class="red" id="figure">02:34</p>
+                </div>
+            </div>
+            <table id="win-tab">
+                <tbody>
+                    <tr>
+                        <td id="window">
+                            <div id="two-titles-metric">
+                                <p class="title purple">Insurance</p>
+                                <p class="figure purple">86</p>
+                            </div>
+                            <div id="clock-time-win">
+                                <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                                <p class="green">00:34</p>
+                            </div>
+                        </td>
+                        <td id="window">
+                            <div id="two-titles-metric">
+                                <p class="title indigo">Self Pay</p>
+                                <p class="figure indigo">58</p>
+                            </div>
+                            <div id="clock-time-win">
+                                <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                                <p class="red">02:34</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="window">
+                            <div id="two-titles-metric">
+                                <p class="blue title">International</p>
+                                <p class="figure blue">78</p>
+                            </div>
+                            <div id="clock-time-win">
+                                <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                                <p class="red">02:34</p>
+                            </div>
+                        </td>
+                        <td id="window">
+                            <div id="two-titles-metric">
+                                <p class="title grey">Local</p>
+                                <p class="grey figure">86</p>
+                            </div>
+                            <div id="clock-time-win">
+                                <img id='clock-logo' src="{% static './img/clock.png' %}" alt="Logo">
+                                <p class="green">00:34</p>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="graphs">
+            
+                <table id="zone-stats">
+                    <thead>
+                        <th class="main-blue">Zone Statistics</th>
+                        <th class="main-green">Green Zone</th>
+                        <th class="main-yellow">Yellow Zone</th>
+                        <th class="main-red">Red Zone</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="sub-category">Total Visits</td>
+                            <td class="light-green">0</td>
+                            <td class="light-yellow">18</td>
+                            <td class="light-red">131</td>
+                        </tr>
+                        <tr>
+                            <td class="sub-category">Active</td>
+                            <td class="light-green">0</td>
+                            <td class="light-yellow">24</td>
+                            <td class="light-red">28</td>
+                        </tr>
+                        <tr>
+                            <td class="sub-category">Discharged</td>
+                            <td class="light-green">0</td>
+                            <td class="light-yellow">6</td>
+                            <td class="light-red">0</td>
+                        </tr>
+                        <tr>
+                            <td class="sub-category">Avg. Triage Time</td>
+                            <td class="light-green green">00:34</td>
+                            <td class="light-yellow red">02:34</td>
+                            <td class="light-red red">02:34</td>
+                        </tr>
+                        <tr>
+                            <td class="sub-category">Avg. Hold Time</td>
+                            <td class="light-green red">02:34</td>
+                            <td class="light-yellow red">02:34</td>
+                            <td class="light-red green">00:34</td>
+                        </tr>
+                        <tr>
+                            <td class="sub-category">Avg. Visit Time</td>
+                            <td class="light-green green">00:34</td>
+                            <td class="light-yellow green">00:34</td>
+                            <td class="light-red green">00:34</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+            <div id="triage-interval"></div>
+            <div id="triage-zone"></div>
+            <div id="patients-interval"></div>
+            <div id="patients-zone"></div>
+            <div id="waiting">
+                <p id="vert-title-1">Current</p>
+                <p id="vert-title-2" class="red">Waiting Status</p>
+                <img src="{% static './img/waiting.png' %}" id="wait-img">
+            </div>
+
+            <div id="vert-tablet-data">
+                <div id="tab-up">
+                    <div id="up-up">
+                        <img src="{% static './img/first-aid-kit.png' %}" id="up-img">
+                        <p id="tit-1">For</p>
+                        <p id="tit-2">Triage</p>
+
+                    </div>
+                    <div id="up-down">
+                        <div id="up-child-1">
+                            <img src="{% static './img/injured.png' %}" id="up-img">
+                            <p id="fig">18</p>
+                        </div>
+                        <div id="divider"></div>
+                        <div id="up-child-2">
+                            <img src="{% static './img/clock.png' %}" id="up-img">
+                            <p id="fig" class="red">02:34</p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div id="tab-down">
+                    <div id="down-up">
+                        <img src="{% static './img/doctor.png' %}" id="up-img">
+                        <p id="tit-1">For</p>
+                        <p id="tit-2">Consultation</p>
+
+                    </div>
+                    <div id="up-down">
+                        <div id="up-child-1">
+                            <img src="{% static './img/injured.png' %}" id="up-img">
+                            <p id="fig">28</p>
+                        </div>
+                        <div id="divider"></div>
+                        <div id="up-child-2">
+                            <img src="{% static './img/clock.png' %}" id="up-img">
+                            <p id="fig" class="green">00:34</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <table class="j-table">
+                
+            </table>
+        </div>
+        
+    </div>
+
+    
+
+
+    <script>
+        let tData = JSON.parse('{{jsonData|escapejs}}')
+        $(document).ready(function () {
+                $('.j-table').html('<b>Doctor Statistics</b>')
+                    .DataTable({
+                        dom:'ftipr',
+                        scrollY: '25vh',
+                        "destroy": true,
+                        "pagination": true,
+                        "sorting": true,
+                        "aaData": tData.docstats,
+                        "columns": [{
+                            "data": "doc_name",
+                            "title": "Doctor's Name"
+                          }, {
+                            "data": "count",
+                            "title": "Patients"
+                          }, {
+                            "data": "avg_visit_tm",
+                            "title": "Avg. Time"
+                        }],
+                        columnDefs:[{ className: 'dt-center', targets: '_all' },]
+                        
+                    });
+            });
+
+
+
+        let triage_interval_data = JSON.parse('{{jsonData|escapejs}}')
+
+        var options = {
+            series: [{
+                name: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[0].name,
+                type: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[0].type,
+                data: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[0].data
+                }, {
+                name: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[1].name,
+                type: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[1].type,
+                data: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[1].data
+                },{
+                    name: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[2].name,
+                    type: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[2].type,
+                    data: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[2].data
+                },
+                {
+                    name: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[3].name,
+                    type: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[3].type,
+                    data: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.y[3].data
+                }
+            ],
+            chart: {
+                height: 250,
+                type: 'line',
+            },
+            stroke: {
+                width: [0, 4]
+            },
+            title: {
+                text: 'Triage by Interval'
+            },
+            dataLabels: {
+                enabled: true,
+                enabledOnSeries: [1]
+            },
+            labels: triage_interval_data.graphs.AccidentEmergency.triage.comparison_1.x,
+            xaxis: {
+                type: 'time'
+            },
+            yaxis: [{
+                title: {
+                    text: '',
+                },
+          
+                }, {
+                opposite: true,
+                title: {
+                    text: ''
+                }
+            }]
+        };
+        let consultation_interval_data = JSON.parse('{{jsonData|escapejs}}')
+
+        var options_1 = {
+            series: [{
+                name:consultation_interval_data.graphs.AccidentEmergency.Doctor.barline_1.y[0].name,
+                type: consultation_interval_data.graphs.AccidentEmergency.Doctor.barline_1.y[0].type,
+                data: consultation_interval_data.graphs.AccidentEmergency.Doctor.barline_1.y[0].data
+                }, {
+                
+                name:consultation_interval_data.graphs.AccidentEmergency.Doctor.barline_1.y[1].name,
+                type: consultation_interval_data.graphs.AccidentEmergency.Doctor.barline_1.y[1].type,
+                data: consultation_interval_data.graphs.AccidentEmergency.Doctor.barline_1.y[1].data
+            }],
+            chart: {
+                height: 250,
+                type: 'line',
+            },
+            stroke: {
+                width: [0, 4]
+            },
+            title: {
+                text: consultation_interval_data.graphs.AccidentEmergency.Doctor.barline_1.title
+            },
+            dataLabels: {
+                enabled: true,
+                enabledOnSeries: [1]
+            },
+            labels: consultation_interval_data.graphs.AccidentEmergency.Doctor.barline_1.x,
+            xaxis: {
+                type: 'name',
+                style:{
+                    fontSize:'12px'
+                }
+            },
+            yaxis: [{
+                title: {
+                    text: '',
+                },
+          
+                }, {
+                opposite: true,
+                title: {
+                    text: ''
+                }
+            }]
+        };
+
+        let patient_interval_data = JSON.parse('{{jsonData|escapejs}}')
+
+
+        console.log(patient_interval_data.graphs.AccidentEmergency.interval.barline_1.y[1].data.map((num)=>{
+            let d = new Date(num*1000).toISOString().substring(11, 16)
+            return d
+        }))
+
+        var options_2 = {
+            series: [{
+                name:patient_interval_data.graphs.AccidentEmergency.interval.barline_1.y[0].name,
+                type: patient_interval_data.graphs.AccidentEmergency.interval.barline_1.y[0].type,
+                data: patient_interval_data.graphs.AccidentEmergency.interval.barline_1.y[0].data
+                }, {
+                name:patient_interval_data.graphs.AccidentEmergency.interval.barline_1.y[1].name,
+                type: patient_interval_data.graphs.AccidentEmergency.interval.barline_1.y[1].type,
+                data: patient_interval_data.graphs.AccidentEmergency.interval.barline_1.y[1].data
+            }],
+            chart: {
+                height: 250,
+                type: 'line',
+            },
+            stroke: {
+                width: [0, 4]
+            },
+            title: {
+                text: 'Patients by Interval'
+            },
+            dataLabels: {
+                enabled: true,
+                enabledOnSeries: [1]
+            },
+            labels: patient_interval_data.graphs.AccidentEmergency.interval.barline_1.x,
+            xaxis: {
+                type: 'time'
+            },
+            yaxis: [{
+                title: {
+                    text: '',
+                },
+          
+                }, {
+                opposite: true,
+                title: {
+                    text: ''
+                }
+            }]
+        };
+        let patient_zone_data = JSON.parse('{{jsonData|escapejs}}')
+
+        var options_3 = {
+            series: patient_zone_data.graphs.AccidentEmergency.Zone.barpie_1.pie.time,
+            chart: {
+            type: 'donut',
+          },
+          title: {
+            text: 'Patients by Zone'
+          },
+          labels:patient_zone_data.graphs.AccidentEmergency.Zone.barpie_1.pie.x,
+          responsive: [{
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: '600px',
+              },
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }]
+        };
+        
+        var triage_interval_chart = new ApexCharts(document.querySelector("#triage-interval"), options);
+
+        triage_interval_chart.render();
+
+        var consultation_interval_chart = new ApexCharts(document.querySelector("#triage-zone"), options_1);
+
+        consultation_interval_chart.render();
+
+        var patient_interval_chart = new ApexCharts(document.querySelector("#patients-interval"), options_2);
+
+        patient_interval_chart.render();
+
+        var patient_zone_chart = new ApexCharts(document.querySelector("#patients-zone"), options_3);
+
+        patient_zone_chart.render();
+
+    </script>
+</body>
+</html>

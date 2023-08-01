@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/add-new-item.css' %}">
+</head>
+<body>
+    <div id="add-new-item-main">
+        <h1 id="add-new-title">Add New Item</h1>
+
+        <form id="add-form" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            
+            <input id="form-btn" type="submit" value="Add New Item">
+        </form>
+    </div>
+    
+</body>
+</html>
+
+{% endblock %}

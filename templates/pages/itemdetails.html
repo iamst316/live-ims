@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/view-item-details.css' %}">
+</head>
+<body>
+    <div id="add-new-main">
+        <h1 id="add-new-title">Item Details</h1>
+
+        <table>
+            <tbody>
+                <tr>
+                    <th class="first">
+                        id
+                    </th>
+                    <td class="second">
+                        {{inventory.id}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="second">
+                        Name
+                    </th>
+                    <td class="first">
+                        {{inventory.name}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="first">
+                        IIN
+                    </th>
+                    <td class="second">
+                        {{inventory.iin}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="second">
+                        Cost
+                    </th>
+                    <td  class="first">
+                        {{inventory.cost}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="first">
+                        Quantity In Stock
+                    </th>
+                    <td class="second">
+                        {{inventory.quantity}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="second">
+                        Quantity Sold
+                    </th>
+                    <td class="first">
+                        {{inventory.quantity_sold}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="first">
+                        Selling Price
+                    </th>
+                    <td class="second">
+                        {{inventory.selling_price}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="second">
+                        Profit Earned
+                    </th>
+                    <td class="first">
+                        {{inventory.profit_earned}}
+                    </td>
+                </tr>
+                <tr>
+                    <th class="first">
+                        Revenue
+                    </th>
+                    <td class="second">
+                        {{inventory.revenue}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    
+</body>
+</html>
+
+{% endblock %}

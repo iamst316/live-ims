@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/edit-item.css' %}">
+</head>
+<body>
+    <div id="edit-form-main">
+        <h1 id="edit-title">Edit Details</h1>
+
+        <form id="order-form" method="post">{% csrf_token %}
+            {{ form.as_p }}
+          <input id="form-btn" type="submit" value="Update">
+        </form>
+        
+    </div>
+    
+</body>
+</html>
+
+{% endblock %}

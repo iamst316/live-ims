@@ -1,0 +1,36 @@
+#order-new-main{
+    /* border: 2px solid firebrick; */
+    margin: auto;
+    width: 75%;
+    margin-top: 2rem;
+    background-color: rgba(245, 243, 255, 0.829);
+
+}
+
+#order-form{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    /* align-items: center */
+    justify-items: center
+}
+
+input,select{
+    /* display: block; */
+    border: 2px solid red;
+    border-radius: 1rem;
+    text-align: center;
+}
+p{
+    margin-bottom: 1rem;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#sell-btn{
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,37 @@
+#edit-items-main{
+    width: 60%;
+    /* border: 2px solid red; */
+    position: relative;
+    left: 25%;
+    background-color: rgba(245, 243, 255, 0.829);
+
+}
+
+#edit-items-list-title{
+    color: blue;
+    /* text-align: center; */
+    border: 2px solid red;
+    padding-left: 3rem;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+
+#item-entry > a > button{
+    width: 12rem;
+    aspect-ratio: 3/1;
+    /* border: 0; */
+    font-size: 1.1rem;
+    /* padding: 2rem; */
+    cursor: pointer;
+}
+
+#item-list{
+    border: 2px solid hotpink;
+}
+
+h2{
+    color: gold;
+    margin-bottom: .85rem;
+
+}

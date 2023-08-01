@@ -1,0 +1,234 @@
+*{
+    margin: 0;
+}
+#items-main{
+    /* border: 2px solid green; */
+    background-color: rgba(245, 243, 255, 0.829);
+    height: 100vh;
+    
+
+}
+#items-title{
+    /* border: 2px solid black; */
+    text-align: center;
+    margin: auto;
+    width: 50%;
+
+}
+
+#edit-items-main{
+  background-color: rgba(245, 243, 255, 0.829);
+
+}
+
+#add-item-btn{
+    position: absolute;
+    left: 64%;
+    /* border: 2px solid orchid; */
+
+}
+
+.confirm{
+  position: relative;
+  left: 34.5%;
+  margin-top: 2rem;
+}
+
+#edit-item-list{
+    /* border: 2px solid red; */
+    position: static;
+    margin-top: 2rem;
+    height: auto;
+    /* display: flex; */
+}
+
+#item-list{
+  border: 2px solid red;
+  position: absolute;
+  margin-top: 2rem;
+  height: auto;
+  left:5rem;
+  
+}
+
+#item-entry-title,#edit-items-list-title{
+    display: block;
+    margin-left: 0;
+    margin-bottom: 2rem;
+    /* border: 2px solid snow; */
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+#item-entry{
+  /* width: fit-content; */
+}
+#item-btn-tray{
+    /* border: 2px solid brown; */
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    justify-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+#item-btn-tray>a{
+    text-decoration: none;
+}
+
+
+
+
+#item-btn {
+  --b: 3px;   
+  --s: .45em; 
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#item-btn:hover,
+#item-btn:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+#item-btn:active {
+  background: var(--color);
+  color: #fff;
+}
+
+
+#add-item-btn {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#add-item-btn:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+#add-item-btn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+#view-item-list,#edit-item-list{
+  margin-top: 2rem;
+  /* border: 2px solid saddlebrown; */
+  width: 50%;
+  margin: auto;
+
+}
+
+#view-item-entry,#edit-item-entry{
+  /* border: 2px solid paleturquoise; */
+  margin-top: 2rem;
+  width: 50%;
+  margin: auto;
+}
+
+#view-item-entry > *,#edit-item-entry > *{
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  position: relative;
+  left: 40%;
+}
+
+#view-item-entry > a{
+  left: 38%;
+}
+
+#item-table{
+  /* border: 2px solid seagreen; */
+  /* margin: auto; */
+  position: relative;
+  left: 11%;
+  margin-top: 2rem;
+}
+th,td{
+  text-align: center;
+  padding:.3rem;
+}
+
+#item-table-received{
+  position: relative;
+  left: 16%;
+  margin-top: 2rem;
+}
+
+#transaction-table{
+  position: relative;
+  left: 16%;
+  margin-top: 2rem;
+}

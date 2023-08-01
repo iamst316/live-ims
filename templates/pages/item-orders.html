@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/items.css' %}">
+</head>
+
+<div id="items-main">
+    <h1 id="items-title">Orders</h1>
+    <div id="item-list">
+        {% if length == 0 %}
+            No Orders of This Item!
+        {% else %}
+        <table id="item-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Order Name</th>
+                    <th>Item Code</th>
+                    <th>Quantity</th>
+                    <th>Cost</th>
+                    <th>Order Date and Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for item in orders %}
+                    <tr id="item-entry">
+    
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.item_id}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.cost}}</td>
+                        <td>{{item.orderdttm}}</td>
+    
+                        <td>{% if item.is_received == 0 and item.is_cancel == 0 %}                    
+                            <a href="{% url 'receive-confirmation' item.id %}"><button id="item-btn">Received?</button></a>
+    
+                            <a href="{% url 'cancel-confirmation' item.id %}"><button id="item-btn">Cancel Order</button></a>
+                            {% elif item.is_received == 1 %}
+                            Received
+                            {% elif item.is_cancel == 1 %}
+                            Cancelled
+                        {% endif %}</td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
